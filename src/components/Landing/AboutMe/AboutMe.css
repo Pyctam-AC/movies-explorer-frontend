@@ -1,0 +1,86 @@
+.aboutMe {
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.info-table {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.student-info {
+  margin: 0;
+  padding: 0;
+  max-width: 600px;
+}
+
+.student-name {
+  margin: 0;
+  padding: 0;
+  margin-top: 70px;
+  color: #000;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+}
+
+.student-profession {
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  color: #000;
+  /* font-feature-settings: 'clig' off, 'liga' off; */
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px
+}
+
+.student-history {
+  margin: 0;
+  padding: 0;
+  margin-top: 30px;
+  margin-bottom: 100px;
+  color: #000;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.student-foto {
+  margin: 0;
+  padding: 0;
+  margin-top: 66px;
+  width: 270px;
+  height: 327px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.student-link {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  transition: .1s linear;
+}
+
+.student-link:hover {
+  font-weight: 700;
+  background-color: rgb(186, 188, 207);
+
+}
