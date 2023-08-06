@@ -1,4 +1,4 @@
-.AboutProject {
+.about-project {
   margin: 0 auto;
   background-color: #fff;
   /* display: flex; */
@@ -14,8 +14,14 @@
 
 .table__cell {
   margin: 0;
+  padding: 0;
+  padding-right: 30px;
   display: flex;
   flex-direction: column;
+}
+
+.table__cell:last-child {
+  padding-right: 0;
 }
 
 .table__title {
@@ -34,7 +40,7 @@
 .table__text {
   margin: 0;
   padding: 0;
-  width: 550px;
+  width: 100%;
   margin-top: 28px;
   color: #000;
   font-family: Inter, Arial, Helvetica, sans-serif;
@@ -95,18 +101,71 @@
   background-color: inherit;
   color: #A0A0A0;
   text-align: center;
-  font-family: Inter;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 17px;
 }
 
-@media screen and (max-width: 890px) {
-  .table__text {
-    width: 410px;
+@media screen and (max-width: 891px) {
+  .table__title {
+    margin-top: 70px;
   }
 
+  .table__text {
+    font-size: 12px;
+  }
+
+  .weeks {
+    margin-top: 93px;
+  }
+
+  .weeks_span {
+    margin-top: 0;
+  }
+
+}
+
+@media screen and (max-width: 891px) {
+  .table__text {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .table__cell {
+    padding-right: 0;
+  }
+
+  .table__title {
+    font-size: 18px;
+    margin-top: 56px;
+  }
+
+  .table__text {
+    font-size: 11px;
+    margin-top: 16px;
+  }
+
+  .weeks {
+    margin-top: 60px;
+  }
+
+  .one__week {
+    width: 40%;
+  }
+
+  .for__week {
+    width: 60%;
+  }
+
+  .text__week {
+    font-size: 11px;
+  }
+
+  .weeks_span {
+    margin-top: 0;
+  }
 
 }
 

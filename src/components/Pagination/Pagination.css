@@ -1,0 +1,44 @@
+.paginaton {
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 80px;
+  width: 1140px;
+  height: 36px;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background-color: #F9F9F9;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+
+.paginaton:hover {
+  scale: 1.01;
+  background-color: #e3e2e2;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+}
+
+.paginaton:active {
+  scale: .99;
+}
+
+@media screen and (max-width: 1215px) {
+  .paginaton {
+    width: 708px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+
+  .paginaton {
+    width: 292px;
+  }
+
+}

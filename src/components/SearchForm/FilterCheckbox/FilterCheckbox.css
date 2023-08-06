@@ -1,0 +1,42 @@
+.checkbox-container {
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 30px;
+  display: flex;
+}
+
+.filter-checkbox {
+  margin: 0 auto;
+  padding: 0;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  height: min-content;
+  border-radius: 20px;
+  background-color: #2BE080;
+  text-decoration: none;
+  width: 36px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.filter-togle {
+  margin: 2px 5px;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .3s linear;
+}
+
+.search__title {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+

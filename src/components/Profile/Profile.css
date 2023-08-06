@@ -1,0 +1,106 @@
+.form {
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 74px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-title {
+  margin: 0 auto;
+  padding: 0;
+  margin-bottom: 123px;
+  color: #000;
+  text-align: center;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.button-profile {
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 200px;
+  box-sizing: border-box;
+  border: none;
+  background-color: inherit;
+  color: #000;
+  text-align: center;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.button-profile:hover {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.profile-logout {
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 15px;
+  color: #EE3465;
+  text-align: center;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.profile-logout:hover {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.save-button {
+
+}
+
+.save-button{
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 179px;
+  box-sizing: border-box;
+  width: 396px;
+  height: 45px;
+  border: none;
+  border-radius: 3px;
+  background-color: #FF6838;
+  color: #FFF;
+  text-align: center;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+  display: block;
+  /* visibility: hidden; */
+  transition: visibility 0.5s, opacity 0.2s linear;
+  /* transition: .3s linear; */
+}
+
+.save-button.save-button_register {
+  margin-top: 35vh;
+}
+
+.save-button:hover {
+  scale: 1.01;
+}
+
+.save-button:active {
+  scale: .99;
+}
+
+.button__none {
+  display: none;
+}

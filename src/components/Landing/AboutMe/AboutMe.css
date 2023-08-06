@@ -1,4 +1,4 @@
-.aboutMe {
+.about-me {
   margin: 0 auto;
   background-color: #fff;
 }
@@ -70,7 +70,7 @@
   margin: 0;
   padding: 0;
   color: #000;
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -82,5 +82,58 @@
 .student-link:hover {
   font-weight: 700;
   background-color: rgb(186, 188, 207);
+
+}
+
+@media screen and (max-width: 891px) {
+  .student-name {
+    font-size: 40px;
+  }
+
+  .student-profession {
+    font-size: 12px;
+  }
+
+  .student-history {
+    font-size: 12px;
+    max-width: 364px;
+  }
+
+  .student-foto {
+    width: 255px;
+    height: 307px;
+  }
+
+}
+
+@media screen and (max-width: 611px) {
+  .info-table {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .student-foto {
+    width: 292px;
+    height: 352px;
+  }
+
+  .student-name {
+    font-size: 30px;
+    line-height: normal;
+    margin-top: 40px;
+  }
+
+  .student-profession {
+    font-size: 11px;
+    line-height: 16px;
+    margin-top: 20px;
+  }
+
+  .student-history {
+    font-size: 11px;
+    line-height: 16px;
+    max-width: 292px;
+    margin-bottom: 40px;
+  }
 
 }

@@ -36,8 +36,8 @@
   margin: 0 auto;
   padding: 0;
   margin-top: 100px;
-  margin-right: 190px;
-  margin-left: 190px;
+  margin-right: max(190px);
+  margin-left: max(190px);
   padding: 0;
   display: flex;
   justify-content: space-between;
@@ -45,7 +45,7 @@
 }
 
 .stack-cell {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   margin-right: 10px;
   display: flex;
@@ -64,10 +64,85 @@
 .stack-text {
   color: #000;
   text-align: center;
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.56px;
+}
+
+@media screen and (max-width: 891px) {
+
+  .stack-title{
+    margin-top: 60px;
+  }
+
+  .stack-subtitle {
+    margin-top: 22px;
+  }
+
+  .stacks-list {
+    margin-right: 60px;
+    margin-left: 60px;
+  }
+
+  .stack-text {
+    font-size: 12px;
+  }
+
+  .stacks-list {
+    margin-top: 83px;
+  }
+
+  .stack-cell {
+    width: 84px;
+    height: 57px;
+  }
+
+  .stack-text {
+    font-size: 12px;
+  }
+
+}
+
+@media screen and (max-width: 711px) {
+
+  .stack {
+    background-color: #FFF;
+  }
+
+  .stack-title {
+    font-size: 30px;
+    line-height: normal;
+  }
+
+  .stack-subtitle {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .stacks-list {
+    flex-wrap: wrap;
+    max-width: 260px;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .stack-cell {
+    margin-bottom: 10px;
+  }
+
+  .stack-cell:nth-child(2n) {
+    margin-right: 0;
+  }
+
+}
+
+@media screen and (max-width: 375px) {
+  .stacks-list {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
 }

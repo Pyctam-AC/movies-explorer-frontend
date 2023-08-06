@@ -1,11 +1,12 @@
+import { forwardRef } from 'react';
 import './AboutProject.css'
 
 const AboutProject = () => {
   return (
-    <section className='AboutProject'>
-      <div className='landing__wraper'>
+    <section className='about-project'>
+      <div className='page__wraper'>
         <div className='text__container'>
-          <h2 className='section__title'>О проекте</h2>
+          <h2 id="AboutProject" className='section__title'>О проекте</h2>
           <ul className='table__text'>
             <li className='table__cell'>
               <h3 className='table__title'>
@@ -43,4 +44,4 @@ const AboutProject = () => {
   );
 };
 
-export default AboutProject;
+export default forwardRef (AboutProject);

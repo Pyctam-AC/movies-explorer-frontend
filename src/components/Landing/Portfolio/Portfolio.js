@@ -3,7 +3,7 @@ import './Portfolio.css';
 const Portfolio = () => {
   return (
     <section className='portfolio'>
-      <div className='landing__wraper'>
+      <div className='page__wraper'>
         <h5 className='portfolio-title'>Портфолио</h5>
         <nav className='portfolio-nav'>
           <a href='https://pyctam-ac.github.io/how-to-learn/index.html'

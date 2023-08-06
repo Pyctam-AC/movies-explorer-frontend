@@ -5,15 +5,21 @@ import './Movies.css';
 import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import MouvesCards from '../MouvesCards/MouvesCards';
+import Pagination from '../Pagination/Pagination';
+import Footer from '../Footer/Footer';
 
 
 const Movies = () => {
   return (
-    <section className='Movies'>
+    <div className='page__wraper'>
       <Header />
-      <SearchForm />
-      <MouvesCards />
-    </section>
+      <section className='movies'>
+        <SearchForm />
+        <MouvesCards />
+        <Pagination />
+        <Footer />
+      </section>
+    </div>
   );
 };
 

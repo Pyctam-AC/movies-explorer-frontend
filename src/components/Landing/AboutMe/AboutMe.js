@@ -2,8 +2,8 @@ import './AboutMe.css';
 
 const AboutMe = () => {
   return (
-    <section className='aboutMe'>
-      <div className='landing__wraper'>
+    <section className='about-me'>
+      <div className='page__wraper'>
         <div className='text__container'>
           <h2 className='section__title'>Студент</h2>
           <div className='info-table'>

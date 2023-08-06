@@ -1,12 +1,11 @@
-/* eslint-disable array-callback-return */
 import './Techs.css';
-import stackNames from '../../../utils/stackName'
+import stackNames from '../../../utils/constans/stackName'
 import TechName from './TechName/TechName';
 
 const Techs = () => {
   return (
     <section className='stack'>
-      <div className='landing__wraper'>
+      <div className='page__wraper'>
         <div className='text__container'>
           <h2 className='section__title'>Технологии</h2>
           <h3 className='stack-title'>8 технологий</h3>

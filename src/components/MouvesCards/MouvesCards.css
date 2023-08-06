@@ -1,0 +1,23 @@
+.card-mouvies {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  /* justify-content: space-between; */
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 1215px) {
+  .card-mouvies {
+    max-width: 760px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .card-mouvies {
+    width: 100%;
+    justify-content: center;
+  }
+}

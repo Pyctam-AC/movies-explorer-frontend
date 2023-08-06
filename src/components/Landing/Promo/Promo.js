@@ -1,13 +1,17 @@
 import React from 'react';
+import { useRef } from 'react';
+/* import {Link, NavLink, useLocation} from 'react-router-dom'; */
 import './Promo.css';
+import { Link } from 'react-scroll';
 import Header from '../../Header/Header';
 import web from '../../../images/text__COLOR_landing-logo.svg';
 
 const Promo = () => {
+
   return (
     <section className="promo">
       <Header />
-      <div className="landing__wraper">
+      <div className="page__wraper">
         <div className='hero__landing'>
           <article className="hero__text-conteiner">
             <h1 className="hero__title">
@@ -16,7 +20,16 @@ const Promo = () => {
             <p className="hero__text">
               Листайте ниже, чтобы узнать больше про этот проект и его создателя.
             </p>
-            <button className="hero__btn">Узнать больше</button>
+            <Link
+              to="AboutProject"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="hero__btn"
+            >
+              О проекте
+            </Link>
           </article>
           <img src={web} className="hero__img" alt="web world" />
         </div>

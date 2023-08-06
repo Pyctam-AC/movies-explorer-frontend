@@ -1,6 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import './SearchForm.css';
+import InputSearch from './InputSearch/InputSearch';
+import FilterCheckbox from './FilterCheckbox/FilterCheckbox';
 
 const SearchForm = () => {
 
@@ -12,23 +15,22 @@ const SearchForm = () => {
   const [rendered, setRendered] = useState(false);
 
   return (
-    <section>
+    <section className='page__wraper'>
       <form
-        className=''
+        className='search-form'
         /* onSubmit={handleSubmit(onSubmit)} */
       >
-        <input
-          {...register('searchValue', {
-            required: { value: true, message: 'Это поле нужно заполнить' },
-          })}
+        <div className='loupa'/>
+        <InputSearch
           type='text'
-          className=''
+          className='search-input'
           placeholder='Фильм'
         />
         <button
           type='submit'
-          className=''
+          className='find-button'
         />
+        <FilterCheckbox />
       </form>
     </section>
   );

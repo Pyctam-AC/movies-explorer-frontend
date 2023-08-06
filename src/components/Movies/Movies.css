@@ -1,0 +1,12 @@
+.movies {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 1215px) {
+  .moviest {
+    width: 708px;
+  }
+}
