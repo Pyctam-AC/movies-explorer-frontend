@@ -25,18 +25,18 @@ const AboutProject = () => {
               </p>
             </li>
           </ul>
-          <div className='weeks'>
-            <div className='one__week'>
+          <ul className='weeks'>
+            <li className='one__week'>
               <p className='text__week'>1 неделя</p>
-            </div>
-            <div className='for__week'>
+            </li>
+            <li className='for__week'>
               <p className='text__week'>4 недели</p>
-            </div>
-          </div>
-          <div className='weeks weeks_span'>
-            <div className='one__week span__theme'>Back-end</div>
-            <div className='for__week span__theme'>Front-end</div>
-          </div>
+            </li>
+          </ul>
+          <ul className='weeks weeks_span'>
+            <li className='one__week span__theme'>Back-end</li>
+            <li className='for__week span__theme'>Front-end</li>
+          </ul>
         </div>
       </div>
 

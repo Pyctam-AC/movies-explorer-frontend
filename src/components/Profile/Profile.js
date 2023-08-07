@@ -48,6 +48,7 @@ function Profile ({ authData, loggedIn }) {
           onSubmit={handleSubmit(onSubmit)}
         >
           <h3 className="profile-title">Привет, Rustam!</h3>
+          {/* <span className="profile-span">Имя</span> */}
           <InputForm
             type="text"
             {...register("name", {
@@ -64,8 +65,11 @@ function Profile ({ authData, loggedIn }) {
             name="name"
             placeholder="Напишите ваше имя"
             errors={errors}
+            spanTitle='Имя'
             disabled={!isEditableForm}
+            profile={true}
           />
+          {/* <span className="profile-span">email</span> */}
           <InputForm
             type="text"
             {...register("email", {
@@ -78,7 +82,9 @@ function Profile ({ authData, loggedIn }) {
             name="email"
             placeholder="Напишите Email"
             errors={errors}
+            spanTitle='email'
             disabled={!isEditableForm}
+            profile={true}
           />
 
           <button

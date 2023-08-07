@@ -38,7 +38,7 @@ const Header = ({
         <img
           src={headerLogo}
           className="header__logo"
-          alt="логоотип"
+          alt="логотип"
           onClick={handleLanding}
         />
         {location.pathname === "/" && (

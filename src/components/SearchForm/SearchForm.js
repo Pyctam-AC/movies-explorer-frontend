@@ -22,6 +22,7 @@ const SearchForm = () => {
       >
         <div className='loupa'/>
         <InputSearch
+          required
           type='text'
           className='search-input'
           placeholder='Фильм'

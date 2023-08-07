@@ -1,6 +1,8 @@
 .portfolio {
   margin: 0 auto;
   background-color: #fff;
+  padding-left: 70px;
+  padding-right: 70px;
 }
 
 .portfolio-title {
@@ -63,6 +65,11 @@
 
 @media screen and (max-width: 891px) {
 
+  .portfolio {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
   .nav-text {
     font-size: 28px;
   }
@@ -74,6 +81,13 @@
 }
 
 @media screen and (max-width: 611px) {
+
+  .portfolio {
+    margin: 0 auto;
+    background-color: #fff;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 
   .portfolio-title {
     font-size: 14px;

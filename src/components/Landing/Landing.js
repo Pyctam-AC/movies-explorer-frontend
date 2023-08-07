@@ -10,7 +10,7 @@ import Footer from '../Footer/Footer';
 const Landing = () => {
 
   return (
-      <div className='Landing'>
+      <div className='landing'>
         <Promo />
         <AboutProject />
         <Techs />

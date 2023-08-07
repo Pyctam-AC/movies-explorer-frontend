@@ -13,7 +13,7 @@
 .search-input {
   margin: 0 auto;
   padding: 0;
-  width: 1180px;
+  width: 1140px;
   height: 28px;
   margin-top: 5px;
   padding-bottom: 15px;
@@ -33,6 +33,10 @@
   white-space: nowrap;
   overflow: hidden;
   outline: none;
+}
+
+.search-input:focus {
+  border-bottom: 1px solid #000;
 }
 
 .loupa {

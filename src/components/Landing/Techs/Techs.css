@@ -83,8 +83,8 @@
   }
 
   .stacks-list {
-    margin-right: 60px;
-    margin-left: 60px;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   .stack-text {
@@ -142,7 +142,11 @@
 
 @media screen and (max-width: 375px) {
   .stacks-list {
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-right: 56px;
+    margin-left: 56px;
+  }
+
+  .stack-cell {
+    margin-right: 0;
   }
 }

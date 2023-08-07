@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { Children, forwardRef } from 'react';
 import './InputForm.css'
 
 const InputForm = forwardRef(
@@ -9,6 +9,7 @@ const InputForm = forwardRef(
     onChange,
     errors,
     sing,
+    profile,
     autoComplete,
     spanTitle,
     disabled
@@ -17,9 +18,10 @@ const InputForm = forwardRef(
   ) {
   return (
     <>
+      <div className='inptut-container'>
       {
-       sing &&
-        <span className='span-title'>
+       (sing || profile) &&
+        <span className={`${sing? "span-sing" : "span-profile"}`}>
           {spanTitle}
         </span>
       }
@@ -35,6 +37,7 @@ const InputForm = forwardRef(
           ${sing? "input_sing-theme" : ""}
           ${errors[name]? "input_invalid" : ""}`}
       />
+      </div>
       {errors &&
         <span className={`error input-error-${name}`}>
           {errors[name]?.message || ""}

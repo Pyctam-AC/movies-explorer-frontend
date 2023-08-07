@@ -1,9 +1,9 @@
 .page {
   margin: 0 auto;
-  background-color: #fff;
-  /* padding-bottom: 130px; */
+  padding: 0;
+  background-color: #FFF;
   /* max-width: 1280px; */
-  /* height: 100%; */
+  width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
   color: #000;
@@ -19,9 +19,9 @@
 
 .page__wraper {
   margin: 0 auto;
-  max-width: 1180px;
-  /* display: flex; */
-  /* flex-direction: column; */
+  max-width: 1280px;
+/*   padding: 0 70px; */
+
 }
 
 .sing-page {
@@ -35,6 +35,13 @@
   align-items: center;
 }
 
+@media screen and (max-width: 1200px) {
+/*   .page__wraper {
+    padding: 0 30px;
+
+  } */
+}
+
 @media screen and (max-width: 891px) {
   .page__wraper {
     max-width: 768px;
@@ -42,9 +49,10 @@
 }
 
 @media screen and (max-width: 611px) {
-  .page__wraper {
-    max-width: 100%px;
-  }
+/*   .page__wraper {
+    max-width: 100%;
+    padding: 0 14px;
+  } */
 
   .sing-page {
     width: 260px;

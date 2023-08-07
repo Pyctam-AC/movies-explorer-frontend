@@ -1,7 +1,7 @@
 .mouve__item {
   margin: 0;
   margin-bottom: 30px;
-  margin-right: 44px;
+  margin-right: 24px;
   padding: 0;
   max-width: 364px;
   height: 271px;
@@ -14,11 +14,12 @@
   overflow: hidden;
   background-color: #FDFDFD;;
   position: relative;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
   transition: 0.3s linear;
 }
 
 .mouve__item:hover {
-  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 .mouve__item:nth-child(3n) {

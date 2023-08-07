@@ -8,12 +8,14 @@ const Portfolio = () => {
         <nav className='portfolio-nav'>
           <a href='https://pyctam-ac.github.io/how-to-learn/index.html'
             className='nav-content'
+            target="_blank" rel="noreferrer"
           >
             <p className='nav-text'>Статичный сайт</p>
             <p className='nav-link'>↗</p>
           </a>
           <a href='https://pyctam-ac.github.io/russian-travel/index.html'
             className='nav-content'
+            target="_blank" rel="noreferrer"
           >
             <p className='nav-text'>Адаптивный сайт</p>
             <p
@@ -21,6 +23,7 @@ const Portfolio = () => {
           </a>
           <a href='https://pyctam-ac.github.io/react-mesto-auth/index.html'
             className='nav-content'
+            target="_blank" rel="noreferrer"
           >
             <p className='nav-text'>Одностраничное приложение</p>
             <p className='nav-link'>↗</p>
