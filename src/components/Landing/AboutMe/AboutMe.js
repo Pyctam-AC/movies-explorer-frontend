@@ -27,7 +27,7 @@ const AboutMe = () => {
             </article>
             <img src='https://avatars.githubusercontent.com/u/117826387?s=400&u=626c2b63343eb9d64efd1d1e9b849fae35eeca0e&v=4'
               className='student-foto'
-              alt='student foto'
+              alt='фото студента'
             />
           </div>
 

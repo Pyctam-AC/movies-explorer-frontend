@@ -31,7 +31,7 @@ const Promo = () => {
               О проекте
             </Link>
           </article>
-          <img src={web} className="hero__img" alt="web world" />
+          <img src={web} className="hero__img" alt="картинка земеного шара из слов web world" />
         </div>
       </div>
     </section>

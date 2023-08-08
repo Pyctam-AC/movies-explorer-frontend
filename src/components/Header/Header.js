@@ -4,7 +4,6 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import headerLogo from '../../images/logo.svg';
 import {Link, useLocation} from 'react-router-dom';
 import './Header.css';
-import HeaderMain from './HeaderMain/HeaderMain';
 import Navigation from '../Navigation/Navigation';
 import BurgerBtn from './BurgerBtn/BurgerBtn';
 

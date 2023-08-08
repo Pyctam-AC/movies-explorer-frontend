@@ -124,7 +124,7 @@
 
   .stacks-list {
     flex-wrap: wrap;
-    max-width: 260px;
+    max-width: 178px;
     margin-top: 50px;
     margin-right: auto;
     margin-left: auto;
@@ -141,10 +141,10 @@
 }
 
 @media screen and (max-width: 375px) {
-  .stacks-list {
+/*   .stacks-list {
     margin-right: 56px;
     margin-left: 56px;
-  }
+  } */
 
   .stack-cell {
     margin-right: 0;

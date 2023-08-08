@@ -23,7 +23,7 @@ const Card = ({
         /* type="button" */
         src={card.image}
         className="mouve__img"
-        alt={card.name}
+        alt={card.nameRU}
       />
     </li>
   );
