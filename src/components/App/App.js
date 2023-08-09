@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
-import Header from '../Header/Header';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
