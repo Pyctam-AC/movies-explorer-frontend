@@ -1,0 +1,171 @@
+.navigation {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: min-content;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-menu {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.nav-container {
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.movies-link{
+  margin: 0;
+  margin-right: 30px;
+  margin-top: 15px;
+  height: min-content;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  text-align: right;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  cursor: pointer;
+  transition: .3s linear;
+  color: #000;
+  text-decoration: none;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.movies-link_active {
+  text-decoration: underline;
+}
+
+.movies-link:hover {
+  color: #05050551;
+
+}
+
+.account-link {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  margin-top: 5px;
+  align-items: center;
+  /* margin-right: 30px; */
+  height: min-content;
+  border-radius: 20px;
+  /* background-color: #2BE080; */
+  text-decoration: none;
+  width: 110px;
+  height: 32px;
+  transition: .3s linear;
+}
+
+.account-link:hover {
+  background-color: #7e7e7d51;
+}
+
+.account-link:active {
+  scale: .97;
+}
+
+.account-text{
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 20px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  color: #000;
+  text-decoration: none;
+}
+
+.account-icon {
+  margin: 0;
+  padding: 0;
+  width: 11.5px;
+  height: 14px;
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 890px) {
+  .navigation {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    height: 100%;
+    justify-content: end;
+    align-items: start;
+    right: 0;
+    left: 0;
+    top: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .5);
+    /*добавлено новое*/
+    opacity: 0;
+    /*  height: 0;
+      overflow: hidden;*/
+    display: flex;
+    z-index: 2;
+    visibility: hidden;
+    /* transform: translateX(100%); */
+    /* visibility: visible; */
+    transition: visibility 0.3s opacity 0.3s linear;
+  }
+
+  .navigation.navigation_opened {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .nav-menu {
+    max-width: 520px;
+    position: absolute;
+    margin-top: 0;
+    margin-left: 0;
+    /* right: -520px; */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    /* float: right; */
+    visibility: hidden;
+    transform: translateX(520px);
+    transition:  transform .2s visibility 0.2s linear;
+  }
+
+  .nav-menu.nav-menu_opened {
+    transform: translateX(0);
+    transition:  transform .3s linear;
+    visibility: visible;
+  }
+
+  .nav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 159px;
+  }
+
+
+  .account-link {
+    margin-bottom: 99px;
+  }
+
+}

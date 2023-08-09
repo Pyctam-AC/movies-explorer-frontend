@@ -1,0 +1,112 @@
+.sing-form {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-title {
+  margin: 40px 0;
+  padding: 0;
+  color: #000;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.form-button{
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 179px;
+  box-sizing: border-box;
+  width: 396px;
+  height: 45px;
+  border: none;
+  border-radius: 3px;
+  background-color: #FF6838;
+  color: #FFF;
+  text-align: center;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+  transition: .3s linear;
+}
+
+.form-button.form-button_register {
+  margin-top: 69px;
+}
+
+.form-button:hover {
+  scale: 1.01;
+}
+
+.form-button:active {
+  scale: .99;
+}
+
+
+
+.form-footer{
+  margin: 0 auto;
+  margin-top: 16px;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-text {
+  margin: 0;
+  padding: 0;
+  margin-right: 6px;
+  color: #A0A0A0;
+  text-align: center;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.form-link {
+  margin: 0;
+  padding: 0;
+  color: #FF6838;
+  text-align: center;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.form-link:hover {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 611px) {
+  .form-title {
+    text-align: center;
+  }
+
+  .form-button {
+    width: 260px;
+  }
+
+  .form-text {
+    font-size: 12px;
+  }
+
+  .form-link {
+    font-size: 12px;
+  }
+}
+
+

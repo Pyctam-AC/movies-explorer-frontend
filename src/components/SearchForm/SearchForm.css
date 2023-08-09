@@ -1,0 +1,93 @@
+.search-form {
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 70px;
+  margin-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.search-input {
+  margin: 0 auto;
+  padding: 0;
+  width: 1140px;
+  height: 28px;
+  margin-top: 5px;
+  padding-bottom: 15px;
+  /* background-image: url('../../images/icon_loupe.svg');
+  background-repeat: no-repeat; */
+  background-size: contain;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  outline: none;
+}
+
+.search-input:focus {
+  border-bottom: 1px solid #000;
+}
+
+.loupa {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  box-sizing: content-box;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background-image: url('../../images/icon_loupe.svg');
+}
+
+.find-button {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 5px;
+  right: 0;
+  box-sizing: content-box;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background-image: url('../../images/find.svg');
+  cursor: pointer;
+}
+
+.find-button:hover {
+  scale: 1.02;
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 1215px) {
+  .search-input {
+    width: 708px;
+  }
+}
+
+
+@media screen and (max-width: 750px) {
+  .search-input {
+    width: 292px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .loupa {
+    display: none;
+  }
+}
