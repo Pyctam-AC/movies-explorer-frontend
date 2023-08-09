@@ -1,6 +1,8 @@
 .portfolio {
   margin: 0 auto;
   background-color: #fff;
+  max-width: 1280px;
+  box-sizing: border-box;
   padding-left: 70px;
   padding-right: 70px;
 }
