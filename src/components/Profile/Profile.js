@@ -1,24 +1,25 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {Link, useLocation} from 'react-router-dom';
 import './Profile.css'
 import InputForm from "../InputForm/InputForm";
 import Header from "../Header/Header";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import * as MainApi from  '../../utils/MainApi';
 
-function Profile ({ authData, loggedIn }) {
+function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm }) {
 
-  const [isEditableForm, setIsEditableForm] = useState(false);
+  const currentUser = useContext(CurrentUserContext);
 
-  /*isEditableForm, setIsEditableForm */
+/*   const editFormClose = () => {
+    setIsEditableForm(false)
+  } */
 
-  const editForm = () => {
-    setIsEditableForm(true)
-  }
+  //изменение данных пользователя
 
   const onSubmit = (data) => {
-/* authData(data); */
-    setIsEditableForm(false)
+    onUpdateUser(data);
   };
 
   const {
@@ -32,8 +33,8 @@ function Profile ({ authData, loggedIn }) {
 
   useEffect(() => {
     let defaultValues = {};
-    defaultValues.name = "Rustam";
-    defaultValues.email = "qwerty@qwerty.com";
+    defaultValues.name = currentUser?.name;
+    defaultValues.email = currentUser?.email;
     reset({ ...defaultValues });
   }, [reset]);
 
@@ -47,7 +48,7 @@ function Profile ({ authData, loggedIn }) {
           noValidate
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h3 className="profile-title">Привет, Rustam!</h3>
+          <h3 className="profile-title">{currentUser?.name}</h3>
           {/* <span className="profile-span">Имя</span> */}
           <InputForm
             type="text"
@@ -57,6 +58,7 @@ function Profile ({ authData, loggedIn }) {
                 value: 2,
                 message: "Минимум два символа",
               },
+
               maxLength: {
                 value: 40,
                 message: "Максимум сорок символов",
@@ -66,7 +68,7 @@ function Profile ({ authData, loggedIn }) {
             placeholder="Напишите ваше имя"
             errors={errors}
             spanTitle='Имя'
-            disabled={!isEditableForm}
+            disabled={!btnForm}
             profile={true}
           />
           {/* <span className="profile-span">email</span> */}
@@ -83,26 +85,29 @@ function Profile ({ authData, loggedIn }) {
             placeholder="Напишите Email"
             errors={errors}
             spanTitle='email'
-            disabled={!isEditableForm}
+            disabled={!btnForm}
             profile={true}
           />
 
           <button
             type="button"
-            className={`button-profile ${isEditableForm ? 'button__none' : ''}`}
-            onClick={editForm}
+            className={`button-profile ${btnForm ? 'button__none' : ''}`}
+            onClick={editFormOpen}
           >
             Редактировать
           </button>
 
-          <Link to="/singin" className={`profile-logout ${isEditableForm ? 'button__none' : ''}`}>
+          <button
+            onClick={handleLogOut}
+            className={`profile-logout ${btnForm ? 'button__none' : ''}`}
+          >
             Выйти из аккаунта
-          </Link>
+          </button>
 
           <button
             type="submit"
             onSubmit={handleSubmit(onSubmit)}
-            className={`save-button ${isEditableForm ? '' : 'button__none'}`}
+            className={`save-button ${btnForm ? '' : 'button__none'}`}
           >
             Сохранить
           </button>

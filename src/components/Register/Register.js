@@ -5,7 +5,7 @@ import InputForm from "../InputForm/InputForm";
 import Header from "../Header/Header";
 import SingForm from "../SingForm/SingForm";
 
-function Register ({ authData, loggedIn, openPopup, registrPopup }) {
+function Register ({ authData, loggedIn, registrationUser }) {
   const {
     register,
     formState: { errors },
@@ -17,8 +17,8 @@ function Register ({ authData, loggedIn, openPopup, registrPopup }) {
 
   const onSubmit = (data) => {
     /* authData(data); */
-    openPopup()
-    registrPopup();
+    /* openPopup() */
+    registrationUser(data);
   };
 
   useEffect(() => {

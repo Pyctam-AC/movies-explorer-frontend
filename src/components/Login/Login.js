@@ -6,7 +6,7 @@ import InputForm from "../InputForm/InputForm";
 import Header from "../Header/Header";
 import SingForm from "../SingForm/SingForm";
 
-function Login({ authData, loggedIn, openPopup, loginPopup }) {
+function Login({ authData, loggedIn, authorizationUser }) {
 
   const navigate = useNavigate();
 
@@ -22,8 +22,9 @@ function Login({ authData, loggedIn, openPopup, loginPopup }) {
 
   const onSubmit = (data) => {
     /* authData(data); */
-    openPopup();
-    loginPopup();
+    /* openPopup(); */
+    /* loginPopup(); */
+    authorizationUser(data);
   };
 
   useEffect(() => {

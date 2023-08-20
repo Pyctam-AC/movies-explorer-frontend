@@ -65,6 +65,8 @@
   font-weight: 500;
   line-height: normal;
   text-decoration: none;
+  background-color: inherit;
+  border: none;
 }
 
 .profile-logout:hover {

@@ -1,12 +1,17 @@
+import { useState } from 'react';
 import './FilterCheckbox.css';
 
-const FilterCheckbox = () => {
+const FilterCheckbox = ({changeFilter, filterDuration, submit}) => {
+
   return (
     <div className='checkbox-container'>
-      <div className='filter-checkbox'>
-        <span className='filter-togle'></span>
+      <div
+        className={`filter-checkbox ${filterDuration? 'filter-checkbox_active' : ''}`}
+        onClick={changeFilter}
+      >
+        <span className={`filter-togle ${filterDuration? 'filter-togle_active' : ''}`}></span>
       </div>
-      <h4 className='search__title' >
+      <h4 className={`search__title ${filterDuration? 'search__title_active' : ''}`} >
         Короткометражки
       </h4>
     </div>

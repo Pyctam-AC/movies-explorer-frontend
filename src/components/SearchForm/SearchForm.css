@@ -73,6 +73,20 @@
   opacity: 0.9;
 }
 
+.error {
+  margin: 0 auto;
+  margin-top: 5px;
+  max-width: 358px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  color: #EE3465;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  box-sizing: border-box;
+  height: 25px;
+}
+
 @media screen and (max-width: 1215px) {
   .search-input {
     width: 708px;

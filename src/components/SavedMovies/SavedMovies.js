@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import {Link, useLocation} from 'react-router-dom';
 import './SavedMovies.css';
@@ -7,15 +8,33 @@ import SearchForm from '../SearchForm/SearchForm';
 import MouvesCards from '../MouvesCards/MouvesCards';
 import Pagination from '../Pagination/Pagination';
 import Footer from '../Footer/Footer';
+import * as MainApi from  '../../utils/MainApi';
 
 
-const SavedMovies = () => {
+const SavedMovies = ({cards, onCardDelete, handleSearcheMouves, changeFilter, filterDuration}) => {
+
+  //const [filterDuration, setFilter] = useState(false);
+
+/*   const changeFilter = () => {
+    setFilter(!filterDuration);
+  } */
+
   return (
-    <div className='page__wraper'>
+    <div className="page__wraper">
       <Header />
-      <section className='movies'>
-        <SearchForm />
-        <MouvesCards />
+      <section className="movies">
+        <SearchForm
+          handleSearcheMouves={handleSearcheMouves}
+          changeFilter={changeFilter}
+          filterDuration={filterDuration}
+        />
+        {cards?.length ?
+          <MouvesCards
+          cards={cards}
+          onCardDelete={onCardDelete} /> :
+        <p className="movies__not-found" >
+            Кина не будет
+          </p>}
         <Footer />
       </section>
     </div>
@@ -23,3 +42,37 @@ const SavedMovies = () => {
 };
 
 export default SavedMovies;
+
+
+
+/*    //лайки
+   const handleCardLike = (card) => {
+    const isLiked = card.likes.some((i) => i === currentUser._id);
+    api
+      .setLikeCard(card._id, !isLiked)
+      .then((newCard) => {
+        setCards((state) =>
+          state.map((c) => (c._id === card._id ? newCard : c))
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  //удаление карточки
+  const handleCardDelete = (card) => {
+    setIsLoading(true);
+    api
+      .deleteCard(card._id)
+      .then(() => {
+        setCards((state) => state.filter((c) => c._id !== card._id));
+      })
+      .then(() => {
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => setIsLoading(false));
+  }; */

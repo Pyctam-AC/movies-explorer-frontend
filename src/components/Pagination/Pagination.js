@@ -1,13 +1,16 @@
 import './Pagination.css';
 
 const Pagination = ({
-  card,
+  showMoreCards
   }) => {
 
 
   return (
     <section className='page__wraper'>
-      <button className='paginaton'>
+      <button
+        className='paginaton'
+        onClick={showMoreCards}
+      >
         Ещё
       </button>
     </section>

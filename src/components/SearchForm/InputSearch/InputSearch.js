@@ -4,6 +4,7 @@ const InputSearch = ({
     placeholder,
     required,
     onChange,
+
   }) => {
   return (
     <input

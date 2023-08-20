@@ -1,9 +1,12 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import './MouvesCards.css';
 import Card from './Card/Card';
-import cards from '../../utils/constans/cards'
 
-function MouvesCards() {
+function MouvesCards({cards, mouves, onSaveMovie, savedMovies, onCardDelete}) {
+
+  
+
   return (
     <section
       className="page__wraper"
@@ -14,7 +17,11 @@ function MouvesCards() {
           {cards?.map((item) => (
             <Card
               card={item}
-              key={item._id}
+              key={item.id}
+              mouves={mouves}
+              onSaveMovie={onSaveMovie}
+              savedMovies={savedMovies}
+              onCardDelete={onCardDelete}
             />
           ))}
 
