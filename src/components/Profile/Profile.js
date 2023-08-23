@@ -1,22 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useState, useEffect, useContext } from "react";
-import {Link, useLocation} from 'react-router-dom';
 import './Profile.css'
 import InputForm from "../InputForm/InputForm";
 import Header from "../Header/Header";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import * as MainApi from  '../../utils/MainApi';
 
-function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm }) {
+function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm, loggedIn, resetBtnForm }) {
 
   const currentUser = useContext(CurrentUserContext);
-
-/*   const editFormClose = () => {
-    setIsEditableForm(false)
-  } */
-
-  //изменение данных пользователя
 
   const onSubmit = (data) => {
     onUpdateUser(data);
@@ -24,7 +16,7 @@ function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm }) {
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, isDirty },
     handleSubmit,
     reset
   } = useForm({
@@ -36,20 +28,23 @@ function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm }) {
     defaultValues.name = currentUser?.name;
     defaultValues.email = currentUser?.email;
     reset({ ...defaultValues });
-  }, [reset]);
+    resetBtnForm()
+  }, [currentUser, reset]);
 
   return (
     <>
-      <Header />
+      <Header
+        loggedIn={loggedIn}
+      />
       <section className="page__wraper">
         <form
           name="profile"
           className="form"
           noValidate
           onSubmit={handleSubmit(onSubmit)}
+          // isDirty='isdirty'
         >
           <h3 className="profile-title">{currentUser?.name}</h3>
-          {/* <span className="profile-span">Имя</span> */}
           <InputForm
             type="text"
             {...register("name", {
@@ -71,7 +66,6 @@ function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm }) {
             disabled={!btnForm}
             profile={true}
           />
-          {/* <span className="profile-span">email</span> */}
           <InputForm
             type="text"
             {...register("email", {
@@ -89,28 +83,32 @@ function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm }) {
             profile={true}
           />
 
-          <button
+          {btnForm ? (<button
+            type="submit"
+            onSubmit={handleSubmit(onSubmit)}
+            className='save-button'
+            disabled={!isDirty}
+          >
+            Сохранить
+          </button>) : null}
+
+          {btnForm ? null : (<button
             type="button"
-            className={`button-profile ${btnForm ? 'button__none' : ''}`}
+            className='button-profile'
             onClick={editFormOpen}
           >
             Редактировать
-          </button>
+          </button>)}
 
-          <button
+          {btnForm ? null : (<button
+            type="button"
             onClick={handleLogOut}
-            className={`profile-logout ${btnForm ? 'button__none' : ''}`}
+            className='profile-logout'
           >
             Выйти из аккаунта
-          </button>
+          </button>)}
 
-          <button
-            type="submit"
-            onSubmit={handleSubmit(onSubmit)}
-            className={`save-button ${btnForm ? '' : 'button__none'}`}
-          >
-            Сохранить
-          </button>
+
 
         </form>
       </section>

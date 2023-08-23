@@ -23,13 +23,13 @@ import {
 
 //let amount = window.screen.width > 769 ? 12 : 8;
 
-const Movies = ({onSaveMovie, savedMovies, onCardDelete}) => {
+const Movies = ({onSaveMovie, savedMovies, onCardDelete, loggedIn, mouvesAll}) => {
 
 // стейт эффекта загрузки
   const [isLoading, setIsLoading] = useState(false);
 
 // стейт всех карточек
-  const [mouvesAll, setMouvesAll] = useState([]);
+//  const [mouvesAll, setMouvesAll] = useState([]);
 
 // сохраняем в стейте карточки после поиска
   const [mouvesCards, setSearchedMouves] = useState([]);
@@ -44,15 +44,15 @@ const Movies = ({onSaveMovie, savedMovies, onCardDelete}) => {
   const [filterDuration, setFilter] = useState(false);
 
 // загрузка страницы, получаем все фильмы, сбрасываем некоторые стейты фильтра и сабмита
-  useEffect(() => {
+/*   useEffect(() => {
     //setFilter(false);
     //setSubmit(false)
     getMovies()
       .then((res) => {
-        // console.log(res)
+        console.log(res)
         setMouvesAll(res)})
       .catch((e) => console.log(e))
-  }, []);
+  }, []); */
 
 // итория поиска из localStorage
   const saveSearche = (data, result, duration, submit) => {
@@ -144,7 +144,7 @@ const Movies = ({onSaveMovie, savedMovies, onCardDelete}) => {
 
   return (
     <div className='page__wraper'>
-      <Header />
+      <Header loggedIn={loggedIn}/>
       <section className='movies'>
         <SearchForm
           handleSearcheMouves={(data) => handleSearcheMouves(data)}

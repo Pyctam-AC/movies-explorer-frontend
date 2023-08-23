@@ -1,27 +1,29 @@
 // проверяем на совпадения в поиске
 const searchMovies = (
-  searchText,
   moviesNameRU,
   searchLowerCase,
   ) => {
-/*   if (searchText.length === 1) {
-    return moviesNameRU.startsWith(searchLowerCase);
-  } */
   return moviesNameRU.includes(searchLowerCase);
 };
 
 // ищем коротометражки в поиске
 const searchMoviesDuration = (
   movies,
-  searchText,
   moviesNameRU,
   searchLowerCase,
   ) => {
 
   if (movies.duration < 40) {
-    return searchMovies(searchText, moviesNameRU, searchLowerCase);
+    return searchMovies(moviesNameRU, searchLowerCase);
   }
 };
+
+const filterDurationSearch = (movies, filterDuration) => {
+  if (filterDuration) {
+    return movies.duration < 40;
+  }
+  return movies;
+}
 
 // проверяем основные запросы, и есть-ли запрос на корометражки
 const filterSearchMovies = (
@@ -30,10 +32,13 @@ const filterSearchMovies = (
   filterDuration,
   )  => {
   return res.filter(movies => {
-    if (filterDuration) {
-      return searchMoviesDuration(movies, searchText, movies.nameRU.toLowerCase(), searchText.toLowerCase());
+    if (!searchText) {
+      return filterDurationSearch(movies, filterDuration)
     }
-    return searchMovies(searchText, movies.nameRU.toLowerCase(), searchText.toLowerCase());
+    if (filterDuration) {
+      return searchMoviesDuration(movies, movies.nameRU.toLowerCase(), searchText.toLowerCase());
+    }
+    return searchMovies(movies.nameRU.toLowerCase(), searchText.toLowerCase());
   });
 }
 

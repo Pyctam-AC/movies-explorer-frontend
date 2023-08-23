@@ -32,7 +32,17 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+
+}
+
+.login__logo {
+  margin: 0;
+  padding: 0;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: .3s linear;
 }
 
 @media screen and (max-width: 1200px) {
@@ -56,6 +66,7 @@
 
   .sing-page {
     width: 260px;
+    align-items: center;
   }
 }
 

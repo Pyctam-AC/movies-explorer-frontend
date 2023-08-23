@@ -1,8 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
 import InputForm from "../InputForm/InputForm";
-import Header from "../Header/Header";
+import logo from '../../images/logo.svg';
 import SingForm from "../SingForm/SingForm";
 
 function Register ({ authData, loggedIn, registrationUser }) {
@@ -16,8 +17,6 @@ function Register ({ authData, loggedIn, registrationUser }) {
   });
 
   const onSubmit = (data) => {
-    /* authData(data); */
-    /* openPopup() */
     registrationUser(data);
   };
 
@@ -30,9 +29,7 @@ function Register ({ authData, loggedIn, registrationUser }) {
 
   return (
     <div className="sing-page">
-      <Header
-        sing={true}
-      />
+      <Link to="/"><img className="login__logo" src={logo} alt="Лого" /></Link>
       <SingForm
         name="login"
         title="Добро пожаловать!"

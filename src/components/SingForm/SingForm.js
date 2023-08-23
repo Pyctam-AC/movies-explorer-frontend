@@ -20,6 +20,7 @@ function SingForm(props) {
         <h3 className="form-title">{props.title}</h3>
         {props.children}
         <button
+          disabled={props.isLoading}
           type="submit"
           className={`form-button
             ${props.reg? "form-button_register" : ""}`}

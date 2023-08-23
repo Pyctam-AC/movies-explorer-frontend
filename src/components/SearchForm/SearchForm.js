@@ -1,18 +1,15 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useLocation } from 'react-router-dom';
 import './SearchForm.css';
-import InputSearch from './InputSearch/InputSearch';
 import FilterCheckbox from './FilterCheckbox/FilterCheckbox';
 
 const SearchForm = ({
   handleSearcheMouves,
   changeFilter,
   filterDuration,
+  dataSearch
 }) => {
-
-  const location = useLocation();
 
   const {
     register,
@@ -21,35 +18,15 @@ const SearchForm = ({
     handleSubmit,
   } = useForm({ mode: "onChange" });
 
-  // итория поиска из localStorage
-/*   const saveSearcheText = (data) => {
-    localStorage.removeItem("historySearch");
-    localStorage.setItem("historySearch", JSON.stringify({ data }));
-  }; */
-
-//  const [dataSearch, setSaveData] = useState(null)
-
-/*   useEffect(() => {
-    if (location.pathname === "/movies") {
-    const historySearch = localStorage.getItem('historySearch');
-      if (historySearch) {
-        const savedSearch = JSON.parse(historySearch)
-        setSaveData(savedSearch.data)
-      }
-    }
-  }, []) */
-
   const onSubmit = (data) => {
     handleSearcheMouves(data.search);
-/*     setSaveData(data.search);
-    saveSearcheText(data.search); */
   };
 
-/*   useEffect(() => {
+  useEffect(() => {
       let defaultValues = {};
       defaultValues.search = dataSearch;
       reset({ ...defaultValues });
-  }, [reset]); */
+  }, [dataSearch, reset]);
 
   return (
     <section className="page__wraper">
@@ -63,7 +40,7 @@ const SearchForm = ({
           type="text"
           className="search-input"
           placeholder="Фильм"
-          errors={true}
+          errors="true"
         />
         {errors && (
           <span className="error">{errors["search"]?.message || ""}</span>

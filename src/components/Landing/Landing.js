@@ -7,11 +7,11 @@ import AboutMe from './AboutMe/AboutMe';
 import Portfolio from './Portfolio/Portfolio';
 import Footer from '../Footer/Footer';
 
-const Landing = () => {
+const Landing = ({loggedIn}) => {
 
   return (
       <div className='landing'>
-        <Promo />
+        <Promo loggedIn={loggedIn}/>
         <AboutProject />
         <Techs />
         <AboutMe />

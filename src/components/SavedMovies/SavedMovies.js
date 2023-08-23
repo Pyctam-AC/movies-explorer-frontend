@@ -1,27 +1,20 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Route, Routes, useNavigate } from "react-router-dom";
-import {Link, useLocation} from 'react-router-dom';
 import './SavedMovies.css';
 import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import MouvesCards from '../MouvesCards/MouvesCards';
-import Pagination from '../Pagination/Pagination';
 import Footer from '../Footer/Footer';
-import * as MainApi from  '../../utils/MainApi';
 
 
-const SavedMovies = ({cards, onCardDelete, handleSearcheMouves, changeFilter, filterDuration}) => {
 
-  //const [filterDuration, setFilter] = useState(false);
-
-/*   const changeFilter = () => {
-    setFilter(!filterDuration);
-  } */
+const SavedMovies = ({cards, onCardDelete, handleSearcheMouves, changeFilter, filterDuration, loggedIn, currentUser, resetSearch}) => {
 
   return (
     <div className="page__wraper">
-      <Header />
+      <Header
+        loggedIn={loggedIn}
+      />
       <section className="movies">
         <SearchForm
           handleSearcheMouves={handleSearcheMouves}

@@ -1,15 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import InputForm from "../InputForm/InputForm";
-import Header from "../Header/Header";
+import logo from '../../images/logo.svg';
 import SingForm from "../SingForm/SingForm";
 
-function Login({ authData, loggedIn, authorizationUser }) {
-
-  const navigate = useNavigate();
-
+function Login({ authData, loggedIn, authorizationUser, isLoading }) {
 
   const {
     register,
@@ -21,9 +19,6 @@ function Login({ authData, loggedIn, authorizationUser }) {
   });
 
   const onSubmit = (data) => {
-    /* authData(data); */
-    /* openPopup(); */
-    /* loginPopup(); */
     authorizationUser(data);
   };
 
@@ -36,9 +31,7 @@ function Login({ authData, loggedIn, authorizationUser }) {
 
   return (
     <div className="sing-page">
-      <Header
-        sing={true}
-      />
+      <Link to="/"><img className="login__logo" src={logo} alt="Лого" /></Link>
       <SingForm
         name="login"
         title="Рады видеть!"
@@ -48,8 +41,8 @@ function Login({ authData, loggedIn, authorizationUser }) {
         location='/singin'
         link='/singup'
         textLink='Регистрация'
-        /* isValid={isValid}
         isLoading={isLoading}
+        /* isValid={isValid}
         isDirty={isDirty} */
       >
         <InputForm
