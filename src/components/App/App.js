@@ -33,11 +33,12 @@ function App() {
   const registrationUser = (data) => {
     setIsLoading(true)
     MainApi.register(data)
-      .then(() => {
+      .then((data) => {
         openPopup(registerTitle);
         registrOkPopup(true);
         regPopup(true);
         setLoggedIn(true);
+        setUserInfo(data.user);
       })
       .catch((err) => {
         console.log(err);
@@ -148,19 +149,6 @@ function App() {
 
   // стейт всех карточек
   const [mouvesAll, setMouvesAll] = useState([]);
-
-/*   const savedListMovies = (moviesList) => {
-   // localStorage.removeItem('historySavedMovie')
-    localStorage.setItem('historySavedMovie', JSON.stringify({moviesList}));
-  }
-
-  const renederListMovies = () => {
-    const historySavedMovie = localStorage.getItem('historySavedMovie');
-    if (historySavedMovie) {
-      const savedList = JSON.parse(historySavedMovie)
-      setSavedMovies(savedList.movieList)
-    }
-  } */
 
   const onSaveMovie = (movie, setSave) => {
     const movieData = {
