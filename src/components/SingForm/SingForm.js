@@ -1,8 +1,4 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import { useEffect } from "react";
-import InputForm from "../InputForm/InputForm";
-import Header from "../Header/Header";
 import {Link, useLocation} from 'react-router-dom';
 import './SingForm.css'
 
@@ -23,7 +19,9 @@ function SingForm(props) {
           disabled={props.isLoading}
           type="submit"
           className={`form-button
-            ${props.reg? "form-button_register" : ""}`}
+            ${props.reg ? "form-button_register" : ""}
+            ${props.isValid ? "" : "form-button_disabled"}
+          `}
         >
           {props.buttonTitle}
         </button>

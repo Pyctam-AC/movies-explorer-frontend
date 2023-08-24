@@ -7,11 +7,11 @@ import InputForm from "../InputForm/InputForm";
 import logo from '../../images/logo.svg';
 import SingForm from "../SingForm/SingForm";
 
-function Login({ authData, loggedIn, authorizationUser, isLoading }) {
+function Login({ authorizationUser, isLoading }) {
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
     reset,
   } = useForm({
@@ -42,8 +42,7 @@ function Login({ authData, loggedIn, authorizationUser, isLoading }) {
         link='/singup'
         textLink='Регистрация'
         isLoading={isLoading}
-        /* isValid={isValid}
-        isDirty={isDirty} */
+        isValid={isValid}
       >
         <InputForm
             type="text"
@@ -55,7 +54,6 @@ function Login({ authData, loggedIn, authorizationUser, isLoading }) {
               },
             })}
             name="email"
-            /* placeholder="Email" */
             errors={errors}
             spanTitle='E-mail'
             sing={true}
@@ -69,7 +67,6 @@ function Login({ authData, loggedIn, authorizationUser, isLoading }) {
             span
             errors={errors}
             spanTitle='Пароль'
-            /* placeholder="Пароль" */
             sing={true}
             autoComplete="on"
           />

@@ -1,7 +1,6 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import './Card.css';
-import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
 import { BASE_URL_MOVIE } from "../../../utils/constans/moviesUrl";
 
 const Card = ({ card, mouves, onSaveMovie, onCardDelete, savedMovies }) => {

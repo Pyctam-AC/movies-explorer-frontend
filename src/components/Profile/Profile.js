@@ -6,7 +6,7 @@ import InputForm from "../InputForm/InputForm";
 import Header from "../Header/Header";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm, loggedIn, resetBtnForm }) {
+function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm, loggedIn, resetBtnForm, isLoading, isChangeErr }) {
 
   const currentUser = useContext(CurrentUserContext);
 
@@ -44,7 +44,7 @@ function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm, loggedIn,
           onSubmit={handleSubmit(onSubmit)}
           // isDirty='isdirty'
         >
-          <h3 className="profile-title">{currentUser?.name}</h3>
+          <h3 className="profile-title">{`Привет, ${currentUser?.name}!`}</h3>
           <InputForm
             type="text"
             {...register("name", {
@@ -79,17 +79,20 @@ function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm, loggedIn,
             placeholder="Напишите Email"
             errors={errors}
             spanTitle='email'
-            disabled={!btnForm}
+            disabled={!btnForm || isLoading}
             profile={true}
           />
 
+          <span className={`profile-err-message ${isChangeErr ? 'profile-err-message_active' : ''}`}>
+            При обновлении профиля произошла ошибка.
+          </span>
           {btnForm ? (<button
             type="submit"
             onSubmit={handleSubmit(onSubmit)}
-            className='save-button'
+            className={`save-button ${!isDirty || isLoading ? "save-button_disabled" : " " }`}
             disabled={!isDirty}
           >
-            Сохранить
+            {isLoading ? 'Меняем данные...' : 'Сохранить'}
           </button>) : null}
 
           {btnForm ? null : (<button

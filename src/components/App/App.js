@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import { Route, Routes, useNavigate, useLocation, } from 'react-router-dom';
+import { Route, Routes, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import './App.css';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
@@ -11,12 +11,12 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import NotFound from '../NotFound/NotFound';
 import Popup from '../Popup/Popup';
 import usePopupClose from "../../hooks/usePopupClose";
-import { registerTitle, loginTitle, errTitle, okTitle } from '../../utils/constans/popupTitles';
+import { errTitle, okTitle } from '../../utils/constans/popupTitles';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as MainApi from  '../../utils/MainApi';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { BASE_URL_MOVIE } from '../../utils/constans/moviesUrl';
-import filterSearchMovies from '../../hooks/filterSearcheMovies';
+import filterSearchMovies from '../../utils/filterSearcheMovies';
 import {getMovies} from '../../utils/MoviesApi'
 
 
@@ -34,10 +34,8 @@ function App() {
     setIsLoading(true)
     MainApi.register(data)
       .then((data) => {
-        openPopup(registerTitle);
-        registrOkPopup(true);
-        regPopup(true);
         setLoggedIn(true);
+        navigate("/movies");
         setUserInfo(data.user);
       })
       .catch((err) => {
@@ -45,7 +43,9 @@ function App() {
         openPopup(err.message ?? errTitle);
         registrOkPopup(false);
       })
-      .finally(() => setIsLoading(false))
+      .finally(() =>{
+        setIsLoading(false);
+      })
   };
 
 //авторизация пользователя
@@ -60,25 +60,19 @@ function App() {
       .then((data) => {
         console.log(data);
         setLoggedIn(true);
-        /* checkToken(); */
-
-        /* openPopup(loginTitle);
-        loginOkPopup(true); */
         navigate("/movies");
         setUserInfo(data.user);
       })
       .catch((err) => {
         console.log(err);
         openPopup(err.message ?? errTitle);
-        //loginOkPopup(false);
       })
       .finally(() => {
         setIsLoading(false)
-        //loginOkPopup(false)
       })
   };
 
-  //аутентификация пользователя
+//аутентификация пользователя
 
   const checkToken = () => {
     MainApi.getDataUser()
@@ -125,9 +119,15 @@ function App() {
       })
       .catch((err) => {
         console.log(err)
-        openPopup(err.message ?? errTitle);
+        setChangeProfile(true);
       })
-      .finally(() => setIsLoading(false))
+      .finally(() => {
+        setIsLoading(false);
+        setTimeout(() => {
+          setChangeProfile(false);
+          closeAllPopups();
+        }, 3000);
+      })
   };
 
 // выход из учётной записи
@@ -273,7 +273,7 @@ function App() {
     setFilter(false);
     setSaveData(null);
     setSubmit(false);
-    // setSavedMovies(savedMovies);
+    setSavedMovies(savedMoviesAll);
   }
 
 // удаление сохранённых фильмов
@@ -287,6 +287,7 @@ function App() {
           (c) => c._id !== movieId);
 
         setSavedMovies((state) => state.filter((c) => c._id !== movieId));
+        setSavedMoviesAll((state) => state.filter((c) => c._id !== movieId));
         localStorage.setItem('savedMovies', JSON.stringify(deletedMovies));
         setSave(false);
       })
@@ -312,20 +313,11 @@ function App() {
 
 
   const [isRegistrOk, registrOkPopup] = useState(false);
-  const [isLoginOk, loginOkPopup] = useState(false);
-  const [registr, regPopup] = useState(false);
   const [isProfileOk, profileOkPopup] = useState(false);
-
-  const closePopup = () => {
-    closeAllPopups();
-    if (registr) {
-      if (isRegistrOk) {navigate("/movies")};
-    }
-  };
+  const [isChangeErr, setChangeProfile] = useState(false);
 
   const closeAllPopups = () => {
     popupVisible(false);
-    regPopup(false);
   };
 
   usePopupClose(
@@ -341,8 +333,8 @@ function App() {
           <Route path="/" element={<Landing loggedIn={loggedIn}/>} />
           <Route
             path="/singin"
-            element={
-              <>
+            element={!loggedIn ?
+              (<>
                 <Login
                   authorizationUser={(data) => authorizationUser (data)}
                   isLoading={isLoading}
@@ -350,27 +342,27 @@ function App() {
                 <Popup
                   isOpen={isPopupVisible}
                   title={title}
-                  isOk={isLoginOk}
-                  onClose={closePopup}
+                  isOk={isProfileOk}
+                  onClose={closeAllPopups}
                 />
-              </>
+              </>) : ( <Navigate to='/' /> )
             }
           />
           <Route
             path="/singup"
-            element={
-              <>
+            element={!loggedIn ?
+              (<>
                 <Register
                   registrationUser={(data) => registrationUser(data)}
                   isLoading={isLoading}
                 />
-                <Popup
+                {<Popup
                   isOpen={isPopupVisible}
                   title={title}
                   isOk={isRegistrOk}
-                  onClose={closePopup}
-                />
-              </>
+                  onClose={closeAllPopups}
+                />}
+              </>) : ( <Navigate to='/' /> )
             }
           />
           <Route
@@ -402,7 +394,6 @@ function App() {
                   loggedIn={loggedIn}
                   currentUser={currentUser}
                   resetSearch={resetSearch}
-                  //renederListMovies={renederListMovies}
                 />}
               />
             }
@@ -422,12 +413,13 @@ function App() {
                       loggedIn={loggedIn}
                       isLoading={isLoading}
                       resetBtnForm={resetBtnForm}
+                      isChangeErr={isChangeErr}
                     />
                     <Popup
                       isOpen={isPopupVisible}
                       title={title}
                       isOk={isProfileOk}
-                      onClose={closePopup}
+                      onClose={closeAllPopups}
                     />
                   </>
                 }
@@ -442,15 +434,3 @@ function App() {
 };
 
 export default App;
-
-
-/*         setSavedMovies(movies.filter(movie => {
-          if (movie.owner === currentUser._id ) {
-            return movies
-          }
-        }));
-        localStorage.setItem('savedMovies', JSON.stringify(movies.filter(movie => {
-          if (movie.owner === currentUser._id ) {
-            return movies
-          }
-        }))); */

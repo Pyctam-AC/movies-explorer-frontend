@@ -1,11 +1,8 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import './MouvesCards.css';
 import Card from './Card/Card';
 
 function MouvesCards({cards, mouves, onSaveMovie, savedMovies, onCardDelete}) {
-
-  
 
   return (
     <section

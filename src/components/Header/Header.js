@@ -1,8 +1,8 @@
 import React from 'react';
-import { useState, useEffect } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import headerLogo from '../../images/logo.svg';
-import {Link, useLocation} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Header.css';
 import Navigation from '../Navigation/Navigation';
 import BurgerBtn from './BurgerBtn/BurgerBtn';

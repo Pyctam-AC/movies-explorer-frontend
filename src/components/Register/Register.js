@@ -6,10 +6,10 @@ import InputForm from "../InputForm/InputForm";
 import logo from '../../images/logo.svg';
 import SingForm from "../SingForm/SingForm";
 
-function Register ({ authData, loggedIn, registrationUser }) {
+function Register ({ registrationUser, isLoading }) {
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
     reset,
   } = useForm({
@@ -40,9 +40,8 @@ function Register ({ authData, loggedIn, registrationUser }) {
         link='/singin'
         textLink='Войти'
         reg={true}
-        /* isValid={isValid}
+        isValid={isValid}
         isLoading={isLoading}
-        isDirty={isDirty} */
       >
         <InputForm
             type="text"
@@ -59,7 +58,6 @@ function Register ({ authData, loggedIn, registrationUser }) {
             })}
             name="name"
             spanTitle='Имя'
-            /* placeholder="Напишите ваше имя" */
             errors={errors}
             sing={true}
         />
@@ -73,7 +71,6 @@ function Register ({ authData, loggedIn, registrationUser }) {
               },
             })}
             name="email"
-            /* placeholder="Email" */
             errors={errors}
             spanTitle='E-mail'
             sing={true}
@@ -95,7 +92,6 @@ function Register ({ authData, loggedIn, registrationUser }) {
             span
             errors={errors}
             spanTitle='Пароль'
-            /* placeholder="Пароль" */
             sing={true}
             autoComplete="on"
           />

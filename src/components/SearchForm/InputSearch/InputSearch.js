@@ -13,7 +13,6 @@ const InputSearch = ({
       name={name}
       placeholder={placeholder}
       className="search-input"
-      /* onChange={ handleChange } */
     />
   );
 };

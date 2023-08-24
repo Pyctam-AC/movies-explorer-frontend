@@ -46,10 +46,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-/*   .page__wraper {
-    padding: 0 30px;
 
-  } */
 }
 
 @media screen and (max-width: 891px) {
@@ -59,10 +56,6 @@
 }
 
 @media screen and (max-width: 611px) {
-/*   .page__wraper {
-    max-width: 100%;
-    padding: 0 14px;
-  } */
 
   .sing-page {
     width: 260px;

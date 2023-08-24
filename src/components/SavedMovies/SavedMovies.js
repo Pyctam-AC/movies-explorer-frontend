@@ -10,6 +10,10 @@ import Footer from '../Footer/Footer';
 
 const SavedMovies = ({cards, onCardDelete, handleSearcheMouves, changeFilter, filterDuration, loggedIn, currentUser, resetSearch}) => {
 
+  useEffect(() => {
+    resetSearch()
+  }, [])
+
   return (
     <div className="page__wraper">
       <Header
@@ -35,37 +39,3 @@ const SavedMovies = ({cards, onCardDelete, handleSearcheMouves, changeFilter, fi
 };
 
 export default SavedMovies;
-
-
-
-/*    //лайки
-   const handleCardLike = (card) => {
-    const isLiked = card.likes.some((i) => i === currentUser._id);
-    api
-      .setLikeCard(card._id, !isLiked)
-      .then((newCard) => {
-        setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  //удаление карточки
-  const handleCardDelete = (card) => {
-    setIsLoading(true);
-    api
-      .deleteCard(card._id)
-      .then(() => {
-        setCards((state) => state.filter((c) => c._id !== card._id));
-      })
-      .then(() => {
-        closeAllPopups();
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => setIsLoading(false));
-  }; */

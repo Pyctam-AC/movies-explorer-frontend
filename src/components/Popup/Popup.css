@@ -13,8 +13,6 @@
   /*добавлено новое*/
   opacity: 0;
   z-index: 2;
-  /*  height: 0;
-    overflow: hidden;*/
   display: flex;
   visibility: hidden;
   transition: visibility 0.5s, opacity 0.5s linear;

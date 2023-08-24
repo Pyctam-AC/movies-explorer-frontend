@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import './FilterCheckbox.css';
 
-const FilterCheckbox = ({changeFilter, filterDuration, submit}) => {
+const FilterCheckbox = ({changeFilter, filterDuration}) => {
 
   return (
     <div className='checkbox-container'>
