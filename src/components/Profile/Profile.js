@@ -32,7 +32,7 @@ function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm, loggedIn,
   }, [currentUser, reset]);
 
   return (
-    <>
+    <div className='page__wraper'>
       <Header
         loggedIn={loggedIn}
       />
@@ -110,12 +110,9 @@ function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm, loggedIn,
           >
             Выйти из аккаунта
           </button>)}
-
-
-
         </form>
       </section>
-    </>
+    </div>
   );
 };
 
