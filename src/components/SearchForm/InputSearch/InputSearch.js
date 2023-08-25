@@ -4,6 +4,7 @@ const InputSearch = ({
     placeholder,
     required,
     onChange,
+
   }) => {
   return (
     <input
@@ -12,7 +13,6 @@ const InputSearch = ({
       name={name}
       placeholder={placeholder}
       className="search-input"
-      /* onChange={ handleChange } */
     />
   );
 };

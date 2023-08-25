@@ -73,11 +73,10 @@
   margin-right: 14px;
   width: 30px;
   height: 30px;
-  background-image: url('../../../images/save_active.svg');
   object-fit: cover;
   border: none;
+  border-radius: 50%;
   background-repeat: no-repeat;
-  background-color: rgba(0, 0, 0, .0);
   background-position: center;
   background-size: cover;
   transition: 0.3s linear;
@@ -85,11 +84,32 @@
   visibility: visible;
 }
 
+.save-mouvie_none {
+  background-image: url('../../../images/save_none.svg');
+  background-color: rgba(0, 0, 0, .0);
+}
+
+.save-mouvie_active {
+  background-image: url('../../../images/save_active.svg');
+  background-color: rgba(0, 0, 0, .0);
+}
+
+.save-mouvie_delete {
+  background-image: url('../../../images/delete_mouvie.svg');
+  background-color: #F9F9F9;
+  opacity: 40%;
+}
+
+.save-mouvie_delete:hover {
+  opacity: 100%;
+}
+
 .mouve__img {
   margin: 0;
   padding: 0;
   width: 364px;
   height: 203px;
+  cursor: pointer;
 }
 
 /* @media screen and (max-width: 1215px) {
@@ -143,6 +163,7 @@
 @media screen and (max-width: 610px) {
 
   .mouve__item {
+    width: 300px;
     height: 236px;
   }
 

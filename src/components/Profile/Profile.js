@@ -1,29 +1,22 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
-import {Link, useLocation} from 'react-router-dom';
+import { useState, useEffect, useContext } from "react";
 import './Profile.css'
 import InputForm from "../InputForm/InputForm";
 import Header from "../Header/Header";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Profile ({ authData, loggedIn }) {
+function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm, loggedIn, resetBtnForm, isLoading, isChangeErr }) {
 
-  const [isEditableForm, setIsEditableForm] = useState(false);
-
-  /*isEditableForm, setIsEditableForm */
-
-  const editForm = () => {
-    setIsEditableForm(true)
-  }
+  const currentUser = useContext(CurrentUserContext);
 
   const onSubmit = (data) => {
-/* authData(data); */
-    setIsEditableForm(false)
+    onUpdateUser(data);
   };
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, isDirty },
     handleSubmit,
     reset
   } = useForm({
@@ -32,23 +25,26 @@ function Profile ({ authData, loggedIn }) {
 
   useEffect(() => {
     let defaultValues = {};
-    defaultValues.name = "Rustam";
-    defaultValues.email = "qwerty@qwerty.com";
+    defaultValues.name = currentUser?.name;
+    defaultValues.email = currentUser?.email;
     reset({ ...defaultValues });
-  }, [reset]);
+    resetBtnForm()
+  }, [currentUser, reset]);
 
   return (
-    <>
-      <Header />
+    <div className='page__wraper'>
+      <Header
+        loggedIn={loggedIn}
+      />
       <section className="page__wraper">
         <form
           name="profile"
           className="form"
           noValidate
           onSubmit={handleSubmit(onSubmit)}
+          // isDirty='isdirty'
         >
-          <h3 className="profile-title">Привет, Rustam!</h3>
-          {/* <span className="profile-span">Имя</span> */}
+          <h3 className="profile-title">{`Привет, ${currentUser?.name}!`}</h3>
           <InputForm
             type="text"
             {...register("name", {
@@ -57,6 +53,7 @@ function Profile ({ authData, loggedIn }) {
                 value: 2,
                 message: "Минимум два символа",
               },
+
               maxLength: {
                 value: 40,
                 message: "Максимум сорок символов",
@@ -66,10 +63,9 @@ function Profile ({ authData, loggedIn }) {
             placeholder="Напишите ваше имя"
             errors={errors}
             spanTitle='Имя'
-            disabled={!isEditableForm}
+            disabled={!btnForm}
             profile={true}
           />
-          {/* <span className="profile-span">email</span> */}
           <InputForm
             type="text"
             {...register("email", {
@@ -83,33 +79,40 @@ function Profile ({ authData, loggedIn }) {
             placeholder="Напишите Email"
             errors={errors}
             spanTitle='email'
-            disabled={!isEditableForm}
+            disabled={!btnForm || isLoading}
             profile={true}
           />
 
-          <button
-            type="button"
-            className={`button-profile ${isEditableForm ? 'button__none' : ''}`}
-            onClick={editForm}
-          >
-            Редактировать
-          </button>
-
-          <Link to="/singin" className={`profile-logout ${isEditableForm ? 'button__none' : ''}`}>
-            Выйти из аккаунта
-          </Link>
-
-          <button
+          <span className={`profile-err-message ${isChangeErr ? 'profile-err-message_active' : ''}`}>
+            При обновлении профиля произошла ошибка.
+          </span>
+          {btnForm ? (<button
             type="submit"
             onSubmit={handleSubmit(onSubmit)}
-            className={`save-button ${isEditableForm ? '' : 'button__none'}`}
+            className={`save-button ${!isDirty || isLoading ? "save-button_disabled" : " " }`}
+            disabled={!isDirty}
           >
-            Сохранить
-          </button>
+            {isLoading ? 'Меняем данные...' : 'Сохранить'}
+          </button>) : null}
 
+          {btnForm ? null : (<button
+            type="button"
+            className='button-profile'
+            onClick={editFormOpen}
+          >
+            Редактировать
+          </button>)}
+
+          {btnForm ? null : (<button
+            type="button"
+            onClick={handleLogOut}
+            className='profile-logout'
+          >
+            Выйти из аккаунта
+          </button>)}
         </form>
       </section>
-    </>
+    </div>
   );
 };
 

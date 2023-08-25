@@ -34,7 +34,7 @@
 .button-profile {
   margin: 0 auto;
   padding: 0;
-  margin-top: 200px;
+  margin-top: 20px;
   box-sizing: border-box;
   border: none;
   background-color: inherit;
@@ -65,6 +65,8 @@
   font-weight: 500;
   line-height: normal;
   text-decoration: none;
+  background-color: inherit;
+  border: none;
 }
 
 .profile-logout:hover {
@@ -72,14 +74,10 @@
   text-decoration: underline;
 }
 
-.save-button {
-
-}
-
 .save-button{
   margin: 0 auto;
   padding: 0;
-  margin-top: 179px;
+  margin-top: 20px;
   box-sizing: border-box;
   width: 396px;
   height: 45px;
@@ -95,13 +93,7 @@
   line-height: normal;
   cursor: pointer;
   display: block;
-  /* visibility: hidden; */
-  transition: visibility 0.5s, opacity 0.2s linear;
-  /* transition: .3s linear; */
-}
-
-.save-button.save-button_register {
-  margin-top: 35vh;
+  transition: .3s linear;
 }
 
 .save-button:hover {
@@ -112,6 +104,42 @@
   scale: .99;
 }
 
-.button__none {
-  display: none;
+.save-button_disabled {
+  background: #FFF;
+  color: rgba(0, 0, 0, .2);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, .15);
+  border-color: rgba(0, 0, 0, .2);
+  cursor: auto;
+}
+
+.save-button_disabled:hover {
+  background-color: #FFF;
+  scale: 1;
+}
+
+.save-button_disabled:active {
+  scale: 1;
+}
+
+.save-button.save-button_register {
+  margin-top: 35vh;
+}
+
+.profile-err-message {
+  margin: 0;
+  padding: 0;
+  margin-top: 170px;
+  color: #FF004C;
+  text-align: center;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0;
+  transition: .3s linear;
+}
+
+.profile-err-message_active {
+  opacity: 1;
 }

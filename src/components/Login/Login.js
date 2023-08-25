@@ -1,19 +1,17 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import InputForm from "../InputForm/InputForm";
-import Header from "../Header/Header";
+import logo from '../../images/logo.svg';
 import SingForm from "../SingForm/SingForm";
 
-function Login({ authData, loggedIn, openPopup, loginPopup }) {
-
-  const navigate = useNavigate();
-
+function Login({ authorizationUser, isLoading }) {
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
     reset,
   } = useForm({
@@ -21,9 +19,7 @@ function Login({ authData, loggedIn, openPopup, loginPopup }) {
   });
 
   const onSubmit = (data) => {
-    /* authData(data); */
-    openPopup();
-    loginPopup();
+    authorizationUser(data);
   };
 
   useEffect(() => {
@@ -35,9 +31,7 @@ function Login({ authData, loggedIn, openPopup, loginPopup }) {
 
   return (
     <div className="sing-page">
-      <Header
-        sing={true}
-      />
+      <Link to="/"><img className="login__logo" src={logo} alt="Лого" /></Link>
       <SingForm
         name="login"
         title="Рады видеть!"
@@ -47,9 +41,8 @@ function Login({ authData, loggedIn, openPopup, loginPopup }) {
         location='/singin'
         link='/singup'
         textLink='Регистрация'
-        /* isValid={isValid}
         isLoading={isLoading}
-        isDirty={isDirty} */
+        isValid={isValid}
       >
         <InputForm
             type="text"
@@ -61,7 +54,6 @@ function Login({ authData, loggedIn, openPopup, loginPopup }) {
               },
             })}
             name="email"
-            /* placeholder="Email" */
             errors={errors}
             spanTitle='E-mail'
             sing={true}
@@ -75,7 +67,6 @@ function Login({ authData, loggedIn, openPopup, loginPopup }) {
             span
             errors={errors}
             spanTitle='Пароль'
-            /* placeholder="Пароль" */
             sing={true}
             autoComplete="on"
           />

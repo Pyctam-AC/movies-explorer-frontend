@@ -6,11 +6,13 @@ import { Link } from 'react-scroll';
 import Header from '../../Header/Header';
 import web from '../../../images/text__COLOR_landing-logo.svg';
 
-const Promo = () => {
+const Promo = ({loggedIn}) => {
 
   return (
     <section className="promo">
-      <Header />
+      <Header
+        loggedIn={loggedIn}
+      />
       <div className="page__wraper">
         <div className='hero__landing'>
           <article className="hero__text-conteiner">

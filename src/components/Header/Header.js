@@ -1,22 +1,18 @@
 import React from 'react';
-import { useState, useEffect } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import headerLogo from '../../images/logo.svg';
-import {Link, useLocation} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Header.css';
 import Navigation from '../Navigation/Navigation';
 import BurgerBtn from './BurgerBtn/BurgerBtn';
 
 const Header = ({
-  emailUser,
-  handleLogOut,
-  isOpen,
+  loggedIn,
   sing,
 }) => {
 
   const navigate = useNavigate();
-
-  const location = useLocation();
 
   const handleLanding = () => {
     navigate("/");
@@ -27,6 +23,17 @@ const Header = ({
   const handlOpenNav = () => {
     navBarVisible(!isNavBarVisible);
   };
+
+  const elementLogin = (
+    <nav className="header__nav">
+      <Link to="/singup" className="header__nav-link">
+        Регистрация
+      </Link>
+      <Link to="/singin" className="singin-link">
+        Войти
+      </Link>
+    </nav>
+  );
 
   return (
     <div className="page__wraper">
@@ -40,54 +47,17 @@ const Header = ({
           alt="логотип"
           onClick={handleLanding}
         />
-        {location.pathname === "/" && (
-          <nav className="header__nav">
-            <Link to="/singup" className="header__nav-link">
-              Регистрация
-            </Link>
-            <Link to="/singin" className="singin-link">
-              Войти
-            </Link>
-          </nav>
-        )}
 
-        {location.pathname === "/movies" && (
-          <Navigation
-            isNavBarVisible={isNavBarVisible}
-            handlOpenNav={handlOpenNav}
-          />
-        )}
-        {location.pathname === "/saved-movies" && (
-          <Navigation
-            isNavBarVisible={isNavBarVisible}
-            handlOpenNav={handlOpenNav}
-          />
-        )}
-        {location.pathname === "/profile" && (
-          <Navigation
-            isNavBarVisible={isNavBarVisible}
-            handlOpenNav={handlOpenNav}
-          />
-        )}
+        {loggedIn ? (<Navigation
+          isNavBarVisible={isNavBarVisible}
+          handlOpenNav={handlOpenNav}
+        />) : elementLogin}
 
-        {location.pathname === "/movies" && (
-          <BurgerBtn
+        {loggedIn ? (<BurgerBtn
             isNavBarVisible={isNavBarVisible}
             handlOpenNav={handlOpenNav}
-          />
-        )}
-        {location.pathname === "/saved-movies" && (
-          <BurgerBtn
-            isNavBarVisible={isNavBarVisible}
-            handlOpenNav={handlOpenNav}
-          />
-        )}
-        {location.pathname === "/profile" && (
-          <BurgerBtn
-            isNavBarVisible={isNavBarVisible}
-            handlOpenNav={handlOpenNav}
-          />
-        )}
+          />) : null}
+
       </header>
     </div>
   );
@@ -95,30 +65,3 @@ const Header = ({
 
 export default Header;
 
-
-/*       {location.pathname === "/signup" && (
-        <Link to="/signin" className="header__nav-link header__nav-link_sing">
-          Войти
-        </Link>
-      )}
-      {location.pathname === "/signin" && (
-        <Link to="/signup" className="header__nav-link header__nav-link_sing">
-          Регистрация
-        </Link>
-      )} */
-
-
-      /*        {location.pathname === "/mouvies" || "/saved-movies" || "/profile" && (
-        <>
-          <button
-            className={`header__burger-btn ${
-              isOpen ? "header__burger-btn_open" : ""
-            }`}
-            onClick={handlOpenNav}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </>
-      )} */

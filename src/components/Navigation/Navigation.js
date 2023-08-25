@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, NavLink, useLocation} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import './Navigation.css'
 import icon from '../../images/icon__COLOR_icon-main.svg';
 import BurgerBtn from '../Header/BurgerBtn/BurgerBtn';

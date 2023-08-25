@@ -1,14 +1,15 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
 import InputForm from "../InputForm/InputForm";
-import Header from "../Header/Header";
+import logo from '../../images/logo.svg';
 import SingForm from "../SingForm/SingForm";
 
-function Register ({ authData, loggedIn, openPopup, registrPopup }) {
+function Register ({ registrationUser, isLoading }) {
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
     reset,
   } = useForm({
@@ -16,9 +17,7 @@ function Register ({ authData, loggedIn, openPopup, registrPopup }) {
   });
 
   const onSubmit = (data) => {
-    /* authData(data); */
-    openPopup()
-    registrPopup();
+    registrationUser(data);
   };
 
   useEffect(() => {
@@ -30,9 +29,7 @@ function Register ({ authData, loggedIn, openPopup, registrPopup }) {
 
   return (
     <div className="sing-page">
-      <Header
-        sing={true}
-      />
+      <Link to="/"><img className="login__logo" src={logo} alt="Лого" /></Link>
       <SingForm
         name="login"
         title="Добро пожаловать!"
@@ -43,9 +40,8 @@ function Register ({ authData, loggedIn, openPopup, registrPopup }) {
         link='/singin'
         textLink='Войти'
         reg={true}
-        /* isValid={isValid}
+        isValid={isValid}
         isLoading={isLoading}
-        isDirty={isDirty} */
       >
         <InputForm
             type="text"
@@ -62,7 +58,6 @@ function Register ({ authData, loggedIn, openPopup, registrPopup }) {
             })}
             name="name"
             spanTitle='Имя'
-            /* placeholder="Напишите ваше имя" */
             errors={errors}
             sing={true}
         />
@@ -76,7 +71,6 @@ function Register ({ authData, loggedIn, openPopup, registrPopup }) {
               },
             })}
             name="email"
-            /* placeholder="Email" */
             errors={errors}
             spanTitle='E-mail'
             sing={true}
@@ -98,7 +92,6 @@ function Register ({ authData, loggedIn, openPopup, registrPopup }) {
             span
             errors={errors}
             spanTitle='Пароль'
-            /* placeholder="Пароль" */
             sing={true}
             autoComplete="on"
           />
