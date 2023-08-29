@@ -18,6 +18,7 @@ const searchMoviesDuration = (
   }
 };
 
+// фильтруем фильмы по корометражкам без сабмита поиска
 const filterDurationSearch = (movies, filterDuration) => {
   if (filterDuration) {
     return movies.duration < 40;

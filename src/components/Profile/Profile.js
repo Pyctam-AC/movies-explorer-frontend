@@ -90,7 +90,7 @@ function Profile ({ onUpdateUser, handleLogOut, editFormOpen, btnForm, loggedIn,
             type="submit"
             onSubmit={handleSubmit(onSubmit)}
             className={`save-button ${!isDirty || isLoading ? "save-button_disabled" : " " }`}
-            disabled={!isDirty}
+            disabled={!isDirty || isLoading}
           >
             {isLoading ? 'Меняем данные...' : 'Сохранить'}
           </button>) : null}
