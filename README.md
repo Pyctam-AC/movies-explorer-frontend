@@ -21,9 +21,6 @@
 Инструменты и стек:
 ##### #HTML #CSS #React #Express #MongoDB #NodeJS #API  #Nginx #JWT #Postman
 
-
-Адрес репозитория: https://github.com/Pyctam-AC/movies-explorer-frontend/pull/2#issue-1843277835
-
 ## Ссылки на проект
 
 IP 158.160.32.180
