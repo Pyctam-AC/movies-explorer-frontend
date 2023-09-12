@@ -1,6 +1,6 @@
 # movies-explorer-frontend
 
-## Фротенд часть приложения дипломной работы.
+## Фротенд часть приложения по поиску фильмов.
 ---
 
 #### макет light-5
@@ -21,8 +21,3 @@
 Инструменты и стек:
 ##### #HTML #CSS #React #Express #MongoDB #NodeJS #API  #Nginx #JWT #Postman
 
-## Ссылки на проект
-
-IP 158.160.32.180
-
-Frontend https://movie-sultangaliev.nomoredomains.xyz
